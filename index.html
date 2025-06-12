@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en" class="transition duration-500">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Coding Group</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+
+  <link rel="stylesheet" href="mohit.css">
+  <script>
+    tailwind.config = { darkMode: 'class' };
+  </script>
+  <style>
+    html { scroll-behavior: smooth; }
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.7s ease;
+    }
+    .fade-in.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body class="bg-white text-black dark:bg-gray-900 dark:text-white transition-colors duration-500 font-sans">
+  <div id="galleryOverlay" class="fixed inset-0 z-50 bg-black/90 hidden items-center justify-center flex-col space-y-4">
+    <button onclick="closeGallery()" class="absolute top-4 right-4 text-white text-2xl">&times;</button>
+  
+    <img id="galleryImage" src="" class="max-h-[80vh] max-w-[90vw] object-contain rounded-lg shadow-lg border border-white/20" />
+  
+    <div class="space-x-4">
+      <button onclick="prevImage()" class="px-4 py-2 bg-gray-800 text-white rounded hover:bg-gray-700">⬅ Prev</button>
+      <button onclick="nextImage()" class="px-4 py-2 bg-gray-800 text-white rounded hover:bg-gray-700">Next ➡</button>
+    </div>
+  </div>
+  
+<!-- Header -->
+<header class="fixed w-full z-50 bg-gray-100 dark:bg-gray-800 shadow">
+  <div class="max-w-6xl mx-auto flex justify-between items-center px-6 py-4">
+    <div class="flex items-center space-x-3">
+      <img src="xm.png" alt="logo" class="h-8 w-8">
+      <h1 class="text-xl font-bold">Coding Group</h1>
+    </div>
+    <button id="theme-toggle" class="px-3 py-1 bg-indigo-600 dark:bg-yellow-500 text-white rounded hover:opacity-80">
+      Toggle Theme
+    </button>
+  </div>
+</header>
+
+<!-- Main -->
+<main class="pt-28 px-6 max-w-6xl mx-auto space-y-20">
+  <div class="profile-text">
+    <h3>Hi, we are coding members</h3>
+    <h2>We are a group of four</h2>
+    <h2>And we are <span class="text"></span></h2>
+    <p>
+      We are a team of four passionate coders collaborating to solve real-world problems, 
+      build innovative projects, and grow through shared learning and creativity. 
+      Each of us brings unique strengths—from frontend design and backend logic 
+      to debugging and deployment. United by curiosity, we code, learn, and thrive together.
+    </p>
+  </div>
+  
+  <style>
+    .profile-text {
+      max-width: 700px;
+      margin: auto;
+      padding: 40px;
+      background-color: #1e1e2f;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      text-align: center;
+    }
+  
+    .profile-text h3 {
+      color: #aaa;
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+  
+    .profile-text h2 {
+      color: #fff;
+      font-size: 28px;
+      margin: 10px 0;
+    }
+  
+    .profile-text h2 span.text {
+      color: #00aaff;
+      font-weight: bold;
+      border-right: 2px solid #00aaff;
+      white-space: nowrap;
+      overflow: hidden;
+      display: inline-block;
+      width: 0;
+      animation: typing 2s steps(20, end) forwards, blink 0.75s step-end infinite;
+    }
+  
+    .profile-text p {
+      color: #dcdcdc;
+      font-size: 16px;
+      line-height: 1.6;
+      margin-top: 20px;
+    }
+  
+    @keyframes blink {
+      50% {
+        border-color: transparent;
+      }
+    }
+  
+    @keyframes typing {
+      from {
+        width: 0;
+      }
+      to {
+        width: 100%;
+      }
+    }
+  </style>
+  
+  <script>
+    const phrases = ["innovators", "problem solvers", "developers", "creators"];
+    const textSpan = document.querySelector(".text");
+  
+    let i = 0;
+  
+    function typePhrase() {
+      textSpan.style.animation = "none"; // Reset animation
+      void textSpan.offsetWidth; // Trigger reflow
+      textSpan.textContent = phrases[i];
+      textSpan.style.animation = "typing 2s steps(20, end) forwards, blink 0.75s step-end infinite";
+  
+      i = (i + 1) % phrases.length;
+      setTimeout(typePhrase, 3000);
+    }
+  
+    window.onload = typePhrase;
+  </script>
+  
+
+  <!-- Profiles -->
+  <!-- Profiles -->
+<section class="fade-in">
+  <h2 class="text-3xl font-bold mb-8">👥 Friends Profiles</h2>
+  <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+    <!-- Your old friend cards here -->
+
+      <!-- Friend Card -->
+      <div class="group [perspective:1500px] w-full max-w-xs mx-auto">
+        <div class="relative h-80 w-full transition-transform duration-700 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
+      
+          <!-- Front Side -->
+          <div class="absolute inset-0 bg-white/10 dark:bg-white/5 backdrop-blur-md border border-white/20 dark:border-gray-700 rounded-xl shadow-lg transition-all duration-500 hover:shadow-2xl flex flex-col justify-center items-center px-6 py-8 overflow-hidden [backface-visibility:hidden]">
+            <div class="relative">
+              <img src="ymohit.jpg" class="w-24 h-24 object-cover rounded-full border-4 border-indigo-500 shadow-md z-10" alt="Rohit">
+              <div class="absolute -inset-1 rounded-full bg-indigo-500 blur-xl opacity-30 animate-pulse"></div>
+            </div>
+            <h3 class="mt-5 text-xl font-bold text-indigo-700 dark:text-indigo-300">MOHIT TIWARI</h3>
+            <p class="text-sm text-gray-600 dark:text-gray-300 mt-1">🚀 FULL STACK DEVELOPER AS WELL AS MAINTAINIG AND EDITING WEBSITE</p>
+          </div>
+      
+          <!-- Back Side -->
+          <div class="absolute inset-0 bg-gradient-to-br from-indigo-600 to-purple-700 dark:from-indigo-800 dark:to-purple-900 text-white px-6 py-8 rounded-xl [transform:rotateY(180deg)] [backface-visibility:hidden]">
+            <h4 class="text-lg font-semibold mb-3">📚 CGPA Details</h4>
+            <ul class="text-sm space-y-1 mb-6">
+              <li>Semester 1: <span class="font-medium">8.5</span></li>
+              <li>Semester 2: <span class="font-medium">8.3</span></li>
+              <li>Semester 3: <span class="font-medium">9.0</span></li>
+            
+            </ul>
+            <div class="absolute bottom-4 left-1/2 -translate-x-1/2 text-xs text-white/70 italic">
+              👋 Let's connect and collaborate!
+            </div>
+          </div>
+      
+        </div>
+      </div>
+      
+  
+      <!-- Friend Card -->
+      <div class="group [perspective:1500px] w-full max-w-xs mx-auto">
+        <div class="relative h-80 w-full transition-transform duration-700 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
+      
+          <!-- Front Side -->
+          <div class="absolute inset-0 bg-white/10 dark:bg-white/5 backdrop-blur-md border border-white/20 dark:border-gray-700 rounded-xl shadow-lg transition-all duration-500 hover:shadow-2xl flex flex-col justify-center items-center px-6 py-8 overflow-hidden [backface-visibility:hidden]">
+            <div class="relative">
+              <img src="zsujal.jpg" class="w-24 h-24 object-cover rounded-full border-4 border-indigo-500 shadow-md z-10" alt="Rohit">
+              <div class="absolute -inset-1 rounded-full bg-indigo-500 blur-xl opacity-30 animate-pulse"></div>
+            </div>
+            <h3 class="mt-5 text-xl font-bold text-indigo-700 dark:text-indigo-300">PIYUSH SUJAL</h3>
+            <p class="text-sm text-gray-600 dark:text-gray-300 mt-1">🚀 PYTHON DEVELOPER WITH VAST KNOWLEDGE OF THINKTER</p>
+          </div>
+      
+          <!-- Back Side -->
+          <div class="absolute inset-0 bg-gradient-to-br from-indigo-600 to-purple-700 dark:from-indigo-800 dark:to-purple-900 text-white px-6 py-8 rounded-xl [transform:rotateY(180deg)] [backface-visibility:hidden]">
+            <h4 class="text-lg font-semibold mb-3">📚 CGPA Details</h4>
+            <ul class="text-sm space-y-1 mb-6">
+              <li>Semester 1: <span class="font-medium">8.35</span></li>
+              <li>Semester 2: <span class="font-medium">7.50</span></li>
+              <li>Semester 3: <span class="font-medium">7.35</span></li>
+              
+            </ul>
+            <div class="absolute bottom-4 left-1/2 -translate-x-1/2 text-xs text-white/70 italic">
+              👋 Let's connect and collaborate!
+            </div>
+          </div>
+      
+        </div>
+      </div>
+      
+  
+      <!-- Friend Card -->
+      <div class="group [perspective:1500px] w-full max-w-xs mx-auto">
+        <div class="relative h-80 w-full transition-transform duration-700 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
+      
+          <!-- Front Side -->
+          <div class="absolute inset-0 bg-white/10 dark:bg-white/5 backdrop-blur-md border border-white/20 dark:border-gray-700 rounded-xl shadow-lg transition-all duration-500 hover:shadow-2xl flex flex-col justify-center items-center px-6 py-8 overflow-hidden [backface-visibility:hidden]">
+            <div class="relative">
+              <img src="zmoja.jpg" class="w-24 h-24 object-cover rounded-full border-4 border-indigo-500 shadow-md z-10" alt="Rohit">
+              <div class="absolute -inset-1 rounded-full bg-indigo-500 blur-xl opacity-30 animate-pulse"></div>
+            </div>
+            <h3 class="mt-5 text-xl font-bold text-indigo-700 dark:text-indigo-300">MOJHAID</h3>
+            <p class="text-sm text-gray-600 dark:text-gray-300 mt-1">🚀 PROBLEM SOLVER ALONG WITH VAST KNOWLEGE IN GAME DEV</p>
+          </div>
+      
+          <!-- Back Side -->
+          <div class="absolute inset-0 bg-gradient-to-br from-indigo-600 to-purple-700 dark:from-indigo-800 dark:to-purple-900 text-white px-6 py-8 rounded-xl [transform:rotateY(180deg)] [backface-visibility:hidden]">
+            <h4 class="text-lg font-semibold mb-3">📚 CGPA Details</h4>
+            <ul class="text-sm space-y-1 mb-6">
+              <li>Semester 1: <span class="font-medium">7.4</span></li>
+              <li>Semester 2: <span class="font-medium">6.78</span></li>
+              <li>Semester 3: <span class="font-medium">7.27</span></li>
+              
+            </ul>
+            <div class="absolute bottom-4 left-1/2 -translate-x-1/2 text-xs text-white/70 italic">
+              👋 Let's connect and collaborate!
+            </div>
+          </div>
+      
+        </div>
+      </div>
+      
+       <!-- Friend Card -->
+       <div class="group [perspective:1500px] w-full max-w-xs mx-auto">
+        <div class="relative h-80 w-full transition-transform duration-700 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
+      
+          <!-- Front Side -->
+          <div class="absolute inset-0 bg-white/10 dark:bg-white/5 backdrop-blur-md border border-white/20 dark:border-gray-700 rounded-xl shadow-lg transition-all duration-500 hover:shadow-2xl flex flex-col justify-center items-center px-6 py-8 overflow-hidden [backface-visibility:hidden]">
+            <div class="relative">
+              <img src="zmyank.jpg" class="w-24 h-24 object-cover rounded-full border-4 border-indigo-500 shadow-md z-10" alt="Rohit">
+              <div class="absolute -inset-1 rounded-full bg-indigo-500 blur-xl opacity-30 animate-pulse"></div>
+            </div>
+            <h3 class="mt-5 text-xl font-bold text-indigo-700 dark:text-indigo-300">MAYANK GUPTA</h3>
+            <p class="text-sm text-gray-600 dark:text-gray-300 mt-1">🚀 JAVA DEVELOPER WITH GOOD CONTENT CREATER</p>
+          </div>
+      
+          <!-- Back Side -->
+          <div class="absolute inset-0 bg-gradient-to-br from-indigo-600 to-purple-700 dark:from-indigo-800 dark:to-purple-900 text-white px-6 py-8 rounded-xl [transform:rotateY(180deg)] [backface-visibility:hidden]">
+            <h4 class="text-lg font-semibold mb-3">📚 CGPA Details</h4>
+            <ul class="text-sm space-y-1 mb-6">
+              <li>Semester 1: <span class="font-medium">6.86</span></li>
+              <li>Semester 2: <span class="font-medium">6.95</span></li>
+              <li>Semester 3: <span class="font-medium">6.75</span></li>
+            </ul>
+            <div class="absolute bottom-4 left-1/2 -translate-x-1/2 text-xs text-white/70 italic">
+              👋 Let's connect and collaborate!
+            </div>
+          </div>
+      
+        </div>
+      </div>
+      
+    </div>
+  </section>
+  <div class="text-center my-10">
+    <button onclick="openGallery()" class="px-6 py-2 text-white bg-indigo-600 hover:bg-indigo-700 rounded-lg">
+      📚 Open Library
+    </button>
+  </div>
+  
+    <div class="chatbot-wrapper" id="chatbot">
+    <div class="chat-header">MohitBot</div>
+    <div class="chat-body" id="chat-body"></div>
+    <div class="quick-replies">
+    <button onclick="sendQuick('college')">college</button>
+    <button onclick="sendQuick('Skills')">Skills</button>
+    <button onclick="sendQuick('Hobbies')">Hobbies</button>
+    <button onclick="sendQuick('time-complexity')">time-complexity</button>
+    <button onclick="sendQuick('asymptotic notation')">asymptotic notation</button>
+    <button onclick="sendQuick('Divide and conqure')">Divide and conqure</button>
+    <button onclick="sendQuick('greedy algorithm')">greedy algorithm</button>
+    <button onclick="sendQuick('dynamic programming')">dynamic programming</button>
+    
+    </div>
+    <input type="text" id="chat-input" placeholder="Ask me something..." />
+    </div>
+
+
+
+<script>
+// Toggle chatbot visibility
+function toggleChatbot() {
+  const chatbot = document.getElementById("chatbot");
+  chatbot.style.display = chatbot.style.display === "flex" ? "none" : "flex";
+}
+
+// Add user message and bot reply
+function addMessage(sender, msg) {
+  const el = document.createElement("div");
+  el.innerHTML = `<strong>${sender}:</strong> ${msg}`;
+  const chatBody = document.getElementById("chat-body");
+  chatBody.appendChild(el);
+  chatBody.scrollTop = chatBody.scrollHeight;
+}
+
+// Respond to the user message
+function respond(msg) {
+  const typing = document.createElement("div");
+  typing.id = "typing";
+  typing.innerHTML = `<em>MohitBot is typing...</em>`;
+  const chatBody = document.getElementById("chat-body");
+  chatBody.appendChild(typing);
+  chatBody.scrollTop = chatBody.scrollHeight;
+
+  const reply = getReply(msg);
+  setTimeout(() => {
+      typing.remove();
+      addMessage("MohitBot", reply);
+      speak(reply);
+  }, 1000);
+}
+
+// Get the reply based on user input
+function getReply(input) {
+  const text = input.toLowerCase();
+
+  if (text.includes("hello")) return "Hey there! How can I help you today?";
+  if (text.includes("college")) return "B.P.PODDAR INSTITUE OF MANAGEMENT OF TECHNOLOGY";
+  if (text.includes("skill")) return "We skilled in HTML, CSS, JavaScript, React, and Python.";
+  if (text.includes("hobby"))  return "I enjoy UI design, coding, gaming, and exploring new tech!";
+  if (text.includes("time-complexity")) return "Bubble: O(n), O(n²), O(n²) | Selection: O(n²), O(n²), O(n²) | Insertion: O(n), O(n²), O(n²) | Merge: O(n log n), O(n log n), O(n log n) | Quick: O(n log n), O(n log n), O(n²) | Heap: O(n log n), O(n log n), O(n log n) | Radix: O(nk), O(nk), O(nk) | Counting: O(n+k), O(n+k), O(n+k)";
+  if (text.includes("motivation")) return "Every expert was once a beginner. Every mountain top is within reach if you just keep climbing. One step at a time.";
+  if (text.includes("asymptotic notation")) return "Big O: worst case, Ω: best case, Θ: average case — all describe algorithm growth as input size increases.";
+  if (text.includes("Divide and conqure")) return "Divide and Conquer: Split the problem, solve subproblems recursively, and combine solutions for the final result.";
+  if (text.includes("greedy algorithm")) return "Greedy Algorithm: Make the locally optimal choice at each step hoping for a global optimum. ";
+  if (text.includes("dynamic programming")) return "Solve complex problems by breaking them into overlapping subproblems and storing solutions to avoid recomputation.";
+
+  return  "undefined";
+}
+
+// Handle speech synthesis
+function speak(text) {
+  const speech = new SpeechSynthesisUtterance(text);
+  speech.lang = "en-IN";
+  speechSynthesis.speak(speech);
+}
+
+// Handle quick reply buttons
+function sendQuick(text) {
+  addMessage("You", text);
+  respond(text);
+}
+
+// Handle user input through the chat input box
+const chatInput = document.getElementById("chat-input");
+chatInput.addEventListener("keydown", function (e) {
+  if (e.key === "Enter" && chatInput.value.trim() !== "") {
+      const msg = chatInput.value;
+      addMessage("You", msg);
+      respond(msg);
+      chatInput.value = "";
+  }
+});
+</script>
+<div class="btn-group">
+  <a href="z.pdf" class="btn active">Download bst</a>
+  <style>
+  .btn-group{
+    margin: 15px 0;
+    margin-top: 0px;
+    display: flex;
+  }
+  .btn-group .btn{
+    
+    border-color: #d5d5d5;
+    color: #fff;
+    background-color: #333;
+    padding:12px 25px;
+    margin-top: 0px;
+    margin: 5px 0;
+    margin-right: 7px;
+    border-radius: 30px;
+    border: 2px solid #e5e5e5;
+    box-shadow: 0 10px 10px -8px rgb(0 0 0 / 78%);
+  }
+  .btn.active{
+    border-color: #00f1fe;
+  }
+  </style>
+  
+  
+</div>
+
+
+<div class="btn-group">
+  <a href="y.pdf" class="btn active">Download Graphs</a>
+  <style>
+  .btn-group{
+    margin: 45px 0;
+    display: flex;
+  }
+  .btn-group .btn{
+  
+    border-color: #d5d5d5;
+    color: #fff;
+    background-color: #333;
+    padding:12px 25px;
+    margin: 5px 0;
+    margin-right: 7px;
+    border-radius: 30px;
+    border: 2px solid #e5e5e5;
+    box-shadow: 0 10px 10px -8px rgb(0 0 0 / 78%);
+  }
+  .btn.active{
+    border-color: #00f1fe;
+  }
+  </style>
+  
+  
+</div>
+
+
+
+  <!-- File Upload -->
+  <section class="fade-in">
+    <h2 class="text-3xl font-bold mb-6">📁 Share Files</h2>
+    <div class="bg-gray-100 dark:bg-gray-800 p-6 rounded-lg">
+      <input 
+        id="file-input"
+        type="file"
+        accept=".pdf,.doc,.docx,.ppt,.pptx,.txt,.zip"
+        multiple
+        class="block w-full mb-4 text-sm text-gray-500 dark:text-gray-300 
+               file:mr-4 file:py-2 file:px-4 file:rounded-full 
+               file:border-0 file:text-sm file:font-semibold 
+               file:bg-indigo-600 file:text-white hover:file:bg-indigo-700">
+
+      <div>
+        <h3 class="font-semibold text-lg mb-2">Uploaded Files:</h3>
+        <ul id="file-list" class="space-y-2 text-sm">
+          <!-- List of files -->
+        </ul>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- Footer -->
+<footer class="mt-20 p-6 text-center text-sm text-gray-400 dark:text-gray-500">
+  &copy; 2025 Coding Group. All rights reserved.
+</footer>
+
+<!-- JavaScript (No TypeScript syntax) -->
+<script>
+  // Theme Toggle
+  const toggleBtn = document.getElementById("theme-toggle");
+  const htmlEl = document.documentElement;
+  const setTheme = (mode) => {
+    if (mode === "dark") {
+      htmlEl.classList.add("dark");
+      localStorage.setItem("theme", "dark");
+    } else {
+      htmlEl.classList.remove("dark");
+      localStorage.setItem("theme", "light");
+    }
+  };
+  toggleBtn?.addEventListener("click", () => {
+    const isDark = htmlEl.classList.contains("dark");
+    setTheme(isDark ? "light" : "dark");
+  });
+  const savedTheme = localStorage.getItem("theme");
+  if (savedTheme) setTheme(savedTheme);
+
+  // Scroll animation
+  window.addEventListener("scroll", () => {
+    document.querySelectorAll(".fade-in").forEach(el => {
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight - 100) el.classList.add("show");
+    });
+  });
+  window.dispatchEvent(new Event("scroll"));
+
+
+  const images = [
+    "ymohit.jpg",
+    "zmoja.jpg",
+    "zmyank.jpg",
+    "zsujal.jpg",
+    "xm.png"
+  ];
+
+  let currentIndex = 0;
+  const galleryOverlay = document.getElementById('galleryOverlay');
+  const galleryImage = document.getElementById('galleryImage');
+
+  function openGallery(index = 0) {
+    currentIndex = index;
+    galleryOverlay.style.display = 'flex';
+    showImage(currentIndex);
+  }
+
+  function closeGallery() {
+    galleryOverlay.style.display = 'none';
+  }
+
+  function showImage(index) {
+    galleryImage.src = images[index];
+  }
+
+  function nextImage() {
+    currentIndex = (currentIndex + 1) % images.length;
+    showImage(currentIndex);
+  }
+
+  function prevImage() {
+    currentIndex = (currentIndex - 1 + images.length) % images.length;
+    showImage(currentIndex);
+  }
+  
+  
+
+  // File upload preview
+  const fileInput = document.getElementById("file-input");
+  const fileList = document.getElementById("file-list");
+  fileInput.addEventListener("change", () => {
+    const files = fileInput.files;
+    if (files && files.length > 0) {
+      Array.from(files).forEach(file => {
+        const li = document.createElement("li");
+        li.className = "bg-white dark:bg-gray-700 p-3 rounded flex justify-between items-center";
+        li.innerHTML = `
+          <span class="truncate max-w-[60%]">${file.name}</span>
+          <button class="text-sm px-3 py-1 bg-green-600 text-white rounded hover:bg-green-700">Download</button>
+        `;
+
+        const downloadBtn = li.querySelector("button");
+        downloadBtn.addEventListener("click", () => {
+          const url = URL.createObjectURL(file);
+          const a = document.createElement("a");
+          a.href = url;
+          a.download = file.name;
+          a.click();
+          URL.revokeObjectURL(url);
+        });
+
+        fileList.appendChild(li);
+      });
+
+      fileInput.value = '';
+    }
+  });
+  document.addEventListener("DOMContentLoaded", function() {
+           var typed = new Typed(".text", { 
+               strings: ["Frontend Developer", "Game developer", "Web Developer"],
+               typeSpeed: 100,
+               backSpeed: 100,
+               backDelay: 1000,
+               loop: true
+           });
+       });
+
+
+</script>
+<script src="scripts.js"></script>
+</body>
+</html>
