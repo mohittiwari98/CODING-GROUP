@@ -1,7 +1,11 @@
 # CODING-GROUP
-# Coding Group Website
 
-Welcome to the Coding Group website! This project is designed by a group of four friends to showcase our coding skills, performance metrics, and helpful resources in the areas of Data Structures and Algorithms (DSA). Additionally, it includes an interactive chatbot that assists users with DSA-related queries.A coding group is a collaborative team formed by individuals interested in coding, programming, or software development. Typically, such a group aims to work on projects, improve their coding skills, share knowledge, and assist each other in learning new technologies or programming languages. Here are the main components of a typical coding group:
+Welcome to the Coding Group website! This project is designed by a group of four friends to showcase our coding skills, performance metrics, and helpful resources in the areas of Data Structures and Algorithms (DSA). Additionally, it includes an interactive chatbot that assists users with DSA-related queries.A coding group is a collaborative team formed by individuals interested in coding, programming, or software development. Typically, such a group aims to work on projects, improve their coding skills, share knowledge, and assist each other in learning new technologies or programming languages.
+<div align="center">
+  <img src="Screenshot_2025-06-14-16-44-24-42_254de13a4bc8758c9908fff1f73e3725.jpg" alt="DevOpsShack Banner">
+</div>
+
+Here are the main components of a typical coding group:
 1. Team Members:
 
 
@@ -9,6 +13,9 @@ Roles: Each member may take on different roles based on their skills, interests,
 
 Diversity of Skills: Members often come with varied backgrounds and expertise, enriching the group with different perspectives and solutions.
 
+<div align="center">
+  <img src="Screenshot_2025-06-14-16-44-50-93_254de13a4bc8758c9908fff1f73e3725.jpg" alt="DevOpsShack Banner">
+</div>
 
 2. Objectives:
 
